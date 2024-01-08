@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+  Attendence
+{% endblock title %}
+  
+
+{% block head %}
+
+  <h1>Apply Attendence</h1>
+
+<div class="container-2">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col md-8">
+
+      
+      {% for message in messages %}
+      <div class="alert alert-{{message.tags}} alert-dismissible fade show mt-5" role="alert">
+        <strong></strong>{{message}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+      </div>
+      {% endfor %}
+
+      <form action="{% url 'attendance' %}" method="post" class="mt-3  ">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <input type="number" class="form-control mt-2" name="PhoneNumber" value="{{user.username}}" readonly placeholder="Enter Your Number " required >
+          </div>
+    
+        <div class="form-group">
+            <label for="logintime" class="text-warning mt-2">Log In Time </label>
+          <input type="time" class="form-control mt-2" id="logintime" name="logintime" placeholder="Login Time " required >
+        </div>
+
+        <div class="form-group">
+            <label for="logout" class="text-warning mt-2">Log Out Time </label>
+          <input type="time" class="form-control mt-2" id="logout" name="logout" placeholder="Login Out Time " required >
+        </div>
+
+        
+        <div class="form-group">
+          <select id="workout" class="form-control p-2 mt-2" name=" workout" required>
+            <option value="selected">Select Workout</option>
+            <option value="Biceps">Biceps</option>
+            <option value="Triceps">Triceps</option>
+            <option value="Back">Back</option>
+            <option value="Chest">Chest</option>
+           
+          </select>
+        </div>
+
+       
+        
+        <div class="form-group">
+          <select id="trainer" name=" trainer"  class="form-control p-2 mt-2" required>
+            <option class="selected"> Select Trainer</option>
+            {% for p in SelectTrainer  %}
+            <option value="{{p.name}}">{{p.name}}</option>
+            {% endfor %}   
+          </select>
+        </div>
+
+       
+
+        <br>
+        <div class="d-grid gap-2 mb-5 ">
+          <button type="submit" class="btn btn-warning">Apply Attendence</button>
+        </div> 
+      </form>
+     
+        
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+{% endblock head %}
+    
+
+{% block body %}
+
+{% endblock body %}
+  

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Gallery
+{% endblock title %}
+
+
+{% block head %}
+<h1>Reach Your Goal At FITNESS.</h1>
+<h2>Cultivate a beautiful body and peaceful mind</h2>
+{% endblock head %}
+
+{% block body %}
+<div class="container mt-5 mb-5">
+    <center><h2 class="mb-4">Our Gallery</h2></center>
+    <div class="row">
+        {% for post in posts  %}
+            <div class="col-md-4"> 
+                <div class="card mb-4">
+                    <img src="{{post.img.url}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">{{post.title}}</h5>
+                      <p class="card-text">{{post.pera}}</p>
+                    </div>
+                    <div class="card-footer">
+                      <small class="text-muted">Last Updated On: {{post.timeStamp}} </small>
+                    </div>
+                </div>
+            </div>
+          
+        {% endfor %}
+        <br>
+        <br>
+        <br>
+        <br>
+       
+    </div>
+</div>
+
+{% endblock body %}
+  

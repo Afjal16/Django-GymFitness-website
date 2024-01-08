@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Profile
+{% endblock title %}
+  
+
+{% block head %}
+
+
+{% endblock head %}
+    
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <div><center><h2>Enrollment Details</h2></center></div>
+      {% for post in posts %}
+       
+      <ul class="list-group">
+       <li class="list-group-item bg-dark text-white"><h6>Name: {{post.FullName}}</h6></li>
+       <li class="list-group-item bg-dark text-white"><h6>Email: {{post.Email}}</h6></li>
+       <li class="list-group-item bg-dark text-white"><h6>Gender: {{post.Gender}}</h6></li>
+       <li class="list-group-item bg-dark text-white"><h6>Phone Number: {{post.PhoneNumber}}</h6></li>
+       <li class="list-group-item bg-dark text-white"><h6>Date of Birth: {{post.DOB}}</h6></li>
+       <li class="list-group-item bg-dark text-white"><h6>Membership plan: {{post.SelectMembershipplan}}</h6></li>
+       <li class="list-group-item bg-dark text-white"><h6>Trainer Name: {{post.SelectTrainer}}</h6></li>
+       <li class="list-group-item bg-dark text-white"><h6>Refered By: {{post.Reference}}</h6></li>
+       <li class="list-group-item bg-dark text-white"><h6>Address: {{post.Address}}</h6></li>
+       <li class="list-group-item bg-dark text-white"><h6>payment Status: {{post.paymentStatus}}</h6></li>
+       <li class="list-group-item bg-dark text-white"><h6>Amount Paid: {{post.Price}}</h6></li>
+       <li class="list-group-item bg-dark text-white"><h6>Upcoming Due Date: {{post.DueDate}}</h6></li>
+       <li class="list-group-item bg-dark text-white"><h6>Joining Date: {{post.timeStamp}}</h6></li>
+     </ul>
+       
+     {% endfor %}
+    </div>
+    <div class="col md-8">
+
+      <div><center><h2>Attendence Details</h2></center></div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Login</th>
+            <th scope="col">Logout</th>
+            <th scope="col">Workout</th>
+            <th scope="col">TrainedBy</th>
+         
+            
+          </tr>
+        </thead>
+        <tbody>
+          {% for attend in attendance %}
+          <tr>
+            <td>{{attend.Selectdate}}</td>
+            <td>{{attend.Login}}</td>
+            <td>{{attend.Logout}}</td>
+            <td>{{attend.SelectWorkout}}</td>
+            <td>{{attend.TrainedBy}}</td>
+          </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+   
+    </div>
+  
+  </div>
+  
+  
+
+</div>
+{% endblock body %}
+  
